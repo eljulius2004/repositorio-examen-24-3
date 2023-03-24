@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class TablaEnterosTest {
 	private TablaEnteros tabla;
@@ -24,7 +26,16 @@ class TablaEnterosTest {
 		int resEsp = 6;
 		int res;
 		res = tabla.sumaTabla();
-		assertEquals(6, res, 0);
+		assertEquals(resEsp, res, 0);
 	}
 
+	@ParameterizedTest
+	@CsvSource({"2","9"})
+	@Test
+	void testPosicionTabla() {
+		int resEsp = 1;
+		int n = 1;
+		assertEquals(resEsp,tabla.posicionTabla(n));
+	}
+	
 }
